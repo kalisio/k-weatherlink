@@ -4,7 +4,7 @@ import { signParam } from './weatherlink-signature.js';
 
 const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/weatherlink'
 const API_KEY = process.env.API_KEY
-const API_SECRET = process.API_SECRET
+const API_SECRET = process.env.API_SECRET
 
 
 let generateTask = (options) => {
@@ -115,4 +115,3 @@ export default {
       }
     }
   }
-  
