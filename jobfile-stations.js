@@ -3,8 +3,9 @@ import { hooks } from '@kalisio/krawler'
 import { signParam } from './weatherlink-signature.js';
 
 const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/weatherlink'
-const API_KEY = process.env.API_KEY
-const API_SECRET = process.env.API_SECRET
+const API_KEY = process.env.API_KEY || (console.error("API_KEY is not defined"), process.exit(1))
+const API_SECRET = process.env.API_SECRET || (console.error("API_SECRET is not defined"), process.exit(1))
+const STN_COLLECTION = process.env.STN_COLLECTION || 'weatherlink-stations'
 
 
 let generateTask = (options) => {
@@ -65,7 +66,7 @@ export default {
               }
           },
           updateMongoCollection: {
-            collection: 'weatherlink-stations',
+            collection: STN_COLLECTION,
             filter: { 'properties.station_id': '<%= properties.station_id %>' },
             upsert : true,
             chunkSize: 256
@@ -90,7 +91,7 @@ export default {
           },
           createMongoCollection: {
             clientPath: 'taskTemplate.client',
-            collection: 'weatherlink-stations',
+            collection: STN_COLLECTION,
             indices: [
               [{ 'properties.station_id': 1 }, { unique: true }], 
               { geometry: '2dsphere' }

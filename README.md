@@ -1,13 +1,8 @@
 # k-Weatherlink
-<!---             
-need edit
-[![Latest Release](https://img.shields.io/github/v/tag/kalisio/k-hubeau?sort=semver&label=latest)](https://github.com/kalisio/k-hubeau/releases)
-[![Build Status](https://app.travis-ci.com/kalisio/k-hubeau.svg?branch=master)](https://app.travis-ci.com/kalisio/k-hubeau)
+
+[![CI](https://github.com/kalisio/k-weatherlink/actions/workflows/main.yaml/badge.svg)](https://github.com/kalisio/k-weatherlink/actions/workflows/main.yaml)
 
 A [Krawler](https://kalisio.github.io/krawler/) based service to download data from [WeatherLink V2 API](https://https://weatherlink.github.io/)
-
-  -->
-
 
 The **k-Weatherlink** jobs allow to scrape all sort of data from sensors connected to stations. The data are stored in a [MongoDB](https://www.mongodb.com/) database and more precisely in 2 collections:
 * the `observations` collection stores the observed data from the sensors, more information [here](https://weatherlink.github.io/v2-api/data-structure-types)
@@ -26,6 +21,7 @@ The data retrieved and frequence at wich they are retrieved are limited by your 
 | Variable | Description |
 |--- | --- |
 | `DB_URL` | The database URL. The default value is `mongodb://127.0.0.1:27017/weatherlink` |
+| `STN_COLLECTION` | The collection name to store the stations data. The default value is `weatherlink-stations`. |
 | `API_KEY` | The WeatherLink API key for authentication. |
 | `API_SECRET` | The WeatherLink API secret to sign requests. | 
 | `DEBUG` | Enables debug output. Set it to `krawler*` to enable full output. By default it is undefined. |
@@ -35,6 +31,8 @@ The data retrieved and frequence at wich they are retrieved are limited by your 
 | Variable | Description |
 |--- | --- |
 | `DB_URL` | The database URL. The default value is `mongodb://127.0.0.1:27017/weatherlink` |
+| `STN_COLLECTION` | The collection name from which to retrieve the stations data. The default value is `weatherlink-stations`. |
+| `OBS_COLLECTION` | The collection name to store the observations data. The default value is `weatherlink-observations`. |
 | `TTL` | The observations data time to live. It must be expressed in seconds and the default value is `604 800` (7 days) | 
 | `API_KEY` | The WeatherLink API key for authentication. |
 | `API_SECRET` | The WeatherLink API secret to sign requests. |

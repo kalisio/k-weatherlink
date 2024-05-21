@@ -6,8 +6,11 @@ const outputDir = './output'
 
 // Configuration
 const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/weatherlink'
-const API_KEY = process.env.API_KEY
-const API_SECRET = process.env.API_SECRET
+const API_KEY = process.env.API_KEY || (console.error("API_KEY is not defined"), process.exit(1))
+const API_SECRET = process.env.API_SECRET || (console.error("API_SECRET is not defined"), process.exit(1))
+const STN_COLLECTION = process.env.STN_COLLECTION || 'weatherlink-stations'
+const OBS_COLLECTION = process.env.OBS_COLLECTION || 'weatherlink-observations'
+
 const DATA_TYPE = process.env.DATA_TYPE && process.env.DATA_TYPE.split(',') || ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','18','19','20','21','22','23','24','25','26','27']
 const ttl = parseInt(process.env.TTL) || (7 * 24 * 60 * 60)  // duration in seconds 
 const timeout = parseInt(process.env.TIMEOUT) || (30 * 60 * 1000) // duration in miliseconds
@@ -95,7 +98,7 @@ export default {
 
         writeMongoCollection: {
           chunkSize: 256,
-          collection: 'weatherlink-observations',
+          collection: OBS_COLLECTION,
           transform: { unitMapping: { time: { asDate: 'utc' } } },
           dataPath: 'data.data'
         },
@@ -126,7 +129,7 @@ export default {
         },
         createMongoCollection: {
           clientPath: 'taskTemplate.client',
-          collection: 'weatherlink-observations',
+          collection: OBS_COLLECTION,
           indices: [
             [{ time: 1 }, { expireAfterSeconds: ttl }], // days in s
             { 'properties.station_id': 1 },
@@ -137,13 +140,13 @@ export default {
         getStations: {
           hook: 'readMongoCollection',
           clientPath: 'taskTemplate.client',
-          collection: 'weatherlink-stations',
+          collection: STN_COLLECTION,
           dataPath: 'data.stations',
         },
         lastStoredObs: {
           hook: 'createMongoAggregation',
           clientPath: 'taskTemplate.client',
-          collection: 'weatherlink-observations',
+          collection: OBS_COLLECTION,
           dataPath: 'data.lastObs',
           pipeline: [
             {
