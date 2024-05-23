@@ -1,6 +1,10 @@
 # k-Weatherlink
 
+[![Latest Release](https://img.shields.io/github/v/tag/kalisio/k-weatherlink?sort=semver&label=latest)](https://github.com/kalisio/k-weatherlink/releases)
 [![CI](https://github.com/kalisio/k-weatherlink/actions/workflows/main.yaml/badge.svg)](https://github.com/kalisio/k-weatherlink/actions/workflows/main.yaml)
+[![Code Climate](https://codeclimate.com/github/kalisio/k-weatherlink/badges/gpa.svg)](https://codeclimate.com/github/kalisio/k-weatherlink)
+[![Test Coverage](https://codeclimate.com/github/kalisio/k-weatherlink/badges/coverage.svg)](https://codeclimate.com/github/kalisio/k-weatherlink/coverage)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A [Krawler](https://kalisio.github.io/krawler/) based service to download data from [WeatherLink V2 API](https://https://weatherlink.github.io/)
 
