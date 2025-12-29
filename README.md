@@ -2,6 +2,7 @@
 
 [![Latest Release](https://img.shields.io/github/v/tag/kalisio/k-weatherlink?sort=semver&label=latest)](https://github.com/kalisio/k-weatherlink/releases)
 [![CI](https://github.com/kalisio/k-weatherlink/actions/workflows/main.yaml/badge.svg)](https://github.com/kalisio/k-weatherlink/actions/workflows/main.yaml)
+[![Quality Gate Status](https://sonar.portal.kalisio.com/api/project_badges/measure?project=kalisio-k-weatherlink&metric=alert_status&token=sqb_0652a45b522deb182462b29d17031dedca1de12e)](https://sonar.portal.kalisio.com/dashboard?id=kalisio-k-weatherlink)
 [![Maintainability Issues](https://sonar.portal.kalisio.com/api/project_badges/measure?project=kalisio-k-weatherlink&metric=software_quality_maintainability_issues&token=sqb_0652a45b522deb182462b29d17031dedca1de12e)](https://sonar.portal.kalisio.com/dashboard?id=kalisio-k-weatherlink)
 [![Coverage](https://sonar.portal.kalisio.com/api/project_badges/measure?project=kalisio-k-weatherlink&metric=coverage&token=sqb_0652a45b522deb182462b29d17031dedca1de12e)](https://sonar.portal.kalisio.com/dashboard?id=kalisio-k-weatherlink)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
