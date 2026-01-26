@@ -1,0 +1,8 @@
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+Could not parse to valid json: 
+(Use `node --trace-uncaught ...` to show where the exception was thrown)
+
+Node.js v20.19.6
