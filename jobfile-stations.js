@@ -31,7 +31,7 @@ hooks.registerHook('generateTask', generateTask)
 export default {
     id: 'weatherlink-stations',
     store: 'memory',
-    options: {
+    options: { 
       workersLimit: 1,
       faultTolerant: true,
     },

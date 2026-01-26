@@ -20,7 +20,7 @@ export function signParam(parameters, API_KEY, API_SECRET) {
    }
 
 
-   /*
+   /* 
    The API requires that the parameters be sorted alphabetically
    */
    parameterNames.sort();

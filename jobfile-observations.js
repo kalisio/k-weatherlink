@@ -26,7 +26,7 @@ function toDegreeCelcius (value) {
  return (value - 32) * 5 / 9
 }
 
-
+ 
 function toMeterPerSecond (value) {
  return (value) * 1 / 3.6
 }
