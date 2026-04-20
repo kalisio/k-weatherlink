@@ -15,22 +15,18 @@ const OBS_COLLECTION = process.env.OBS_COLLECTION || 'weatherlink-observations'
 //const DATA_TYPE = process.env.DATA_TYPE && process.env.DATA_TYNegative potential consequences of an action.PE.split(',') || [ '23'['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','18','19','20','21','22','23','24','25','26','27']
 const SUPPORTED_DATA_TYPES = [23]
 const ttl = parseInt(process.env.TTL) || (7 * 24 * 60 * 60)  // duration in seconds
-const timeout = parseInt(process.env.TIMEOUT) || (30 * 60 * 1000) // duration in miliseconds
-
+const timeout = parseInt(process.env.TIMEOUT) || (30 * 60 * 1000) // duration in milliseconds
 
 let dictstations = null
 let total = null
 
-
 function toDegreeCelcius (value) {
- return (value - 32) * 5 / 9
+  return (value - 32) * 5 / 9
 }
 
- 
 function toMeterPerSecond (value) {
- return (value) * 1 / 3.6
+  return (value) * 1 / 3.6
 }
-
 
 // Create a custom hook to generate tasks
 let generateTasks = (options) => {
@@ -58,13 +54,7 @@ let generateTasks = (options) => {
  }
 }
 
-
-
-
-
-
 hooks.registerHook('generateTasks', generateTasks)
-
 
 export default {
  id: 'weatherlink-observations',
@@ -90,8 +80,6 @@ export default {
            let dataToSave = []
            let station_id = item.data.station_id
            _.forEach(item.data.sensors, (data) => {
-
-
              const obstime = new Date(data.data[0].ts * 1000)
              const data_structure_type = data.data_structure_type
              // if the data type is in the DATA_TYPE list and the obs is more recent than the last one
@@ -124,10 +112,6 @@ export default {
            item.data = dataToSave
          }
        },
-
-
-
-
        writeMongoCollection: {
          chunkSize: 256,
          collection: OBS_COLLECTION,
